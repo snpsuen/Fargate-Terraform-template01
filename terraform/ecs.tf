@@ -1,7 +1,7 @@
 # ecs.tf
 
 resource "aws_ecs_cluster" "main" {
-  name = "assign01-cluster"
+  name = "${var.name}-cluster"
 }
 
 data "template_file" "${var.name}_app" {
