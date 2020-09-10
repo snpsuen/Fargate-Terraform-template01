@@ -4,8 +4,8 @@ resource "aws_appautoscaling_target" "target" {
   service_namespace  = "ecs"
   resource_id        = "service/${aws_ecs_cluster.main.name}/${aws_ecs_service.main.name}"
   scalable_dimension = "ecs:service:DesiredCount"
-  min_capacity       = 3
-  max_capacity       = 6
+  min_capacity       = var.ecs_autoscaling_min_capacity
+  max_capacity       = var.ecs_autoscaling_max_capacity
 }
 
 # Automatically scale capacity up by one
